@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Tra cứu giá hoa quả</title>
+</head>
+<body>
+    <h3>Giá hoa quả</h3>
+    <input id="fruit_name" type="text">
+    <button onclick="fruitPrice()" id="check_price">Xem giá</button>
+    <h4 id="price"></h4>
+
+    <script>
+        let oi = 20000;
+        let dua_hau = 20000;
+        let tao = 30000;
+        let xoai = 30000;
+        let cam = 40000;
+        let chom_chom = 40000;
+        let mang_cut = 50000;
+
+
+        function fruitPrice() {
+            let name = document.getElementById('fruit_name').value;
+            let price = document.getElementById('price').innerHTML;
+            switch (name) {
+                case 'Ổi':
+                    price = document.getElementById('price').innerHTML = oi + 'VNĐ/kg';
+                    break;
+                case 'Dưa hấu':
+                    price = document.getElementById('price').innerHTML = dua_hau + 'VNĐ/kg';
+                    break;
+                case 'Táo':
+                    price = document.getElementById('price').innerHTML = tao + 'VNĐ/kg';
+                    break;
+                case 'Xoài':
+                    price = document.getElementById('price').innerHTML = xoai + 'VNĐ/kg';
+                    break;
+                case 'Cam':
+                    price = document.getElementById('price').innerHTML = cam + 'VNĐ/kg';
+                    break;
+                case 'Chôm chôm':
+                    price = document.getElementById('price').innerHTML = chom_chom + 'VNĐ/kg';
+                    break;
+                case 'Măng cụt':
+                    price = document.getElementById('price').innerHTML = mang_cut + 'VNĐ/kg';
+                    break;
+            }
+        }
+
+    </script>
+</body>
+</html>
