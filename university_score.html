@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Tính điểm Đại học khối D</title>
+    <style>
+        td {
+            height: 48px;
+        }
+        input {
+            width: 80px;
+        }
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tính điểm Đh khối D</h2>
+    <table>
+        <tr>
+            <td>Môn Toán</td>
+            <td>
+                <input id="math" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Môn Văn</td>
+            <td>
+                <input id="literature" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Môn Anh</td>
+            <td>
+                <input id="english" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Khu vực</td>
+            <td>
+                <select name="area" id="KV">
+                    <option value="KV1">KV1</option>
+                    <option value="KV2">KV2</option>
+                    <option value="KV2-NT">KV2-NT</option>
+                    <option value="KV3">KV3</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="total" onclick="myFuction()">Tính điểm</button>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <span id="text"></span><span id="result"></span>
+
+    <script>
+        function myFuction() {
+            let math = parseFloat(document.getElementById('math').value);
+            let literature = parseFloat(document.getElementById('literature').value);
+            let english = parseFloat(document.getElementById('english').value);
+            // console.log(typeof math);
+            // console.log(typeof literature);
+            // console.log(typeof english);
+            // console.log(math + literature + english + 0.75);
+
+            let text = document.getElementById('text').innerHTML = 'Tổng điểm ĐH khối D của bạn là: ';
+            let select = document.getElementById('KV').value;
+            let result;
+            switch (select) {
+                case 'KV1':
+                    result = document.getElementById('result').innerHTML = math + literature + english + 0.75;
+                    break;
+                case 'KV2':
+                    result = document.getElementById('result').innerHTML = math + literature + english + 0.25;
+                    break;
+                case 'KV2-NT':
+                    result = document.getElementById('result').innerHTML = math + literature + english + 0.5;
+                    break;
+                case 'KV3':
+                    result = document.getElementById('result').innerHTML = math + literature + english + 0.3;
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
