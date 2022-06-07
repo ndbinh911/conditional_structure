@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Ứng dụng chuyển đổi tiền tệ (JS)</title>
+    <style>
+        table {
+            text-align: center;
+        }
+        th {
+            width: 150px;
+        }
+        td {
+            width: 140px;
+        }
+        input {
+            height: 20px;
+            width: 125px;
+        }
+        select {
+            width: 108px;
+            height: 26px;
+        }
+        button {
+            width: 82px;
+            background-color: #8f82cf;
+            color: #fff;
+            height: 29px;
+            border: 1px solid rgb(117, 135, 225);
+        }
+        button:hover {
+            background-color: rgba(117, 135, 225, 0.9);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <!-- <form action="currency.html"> -->
+            <tr>
+                <th>Amount</th>
+                <th>From Currency</th>
+                <th>To Currency</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id="amount"></td>
+                <td>
+                    <select value="" id="from-currency">
+                        <option name="" id="">VietNam</option>
+                        <option name="" id="">USD</option>
+                    </select>
+                </td>
+                <td>
+                    <select value="" id="to-currency">
+                        <option name="" id="">USD</option>
+                        <option name="" id="">VietNam</option>
+                    </select>
+                </td>
+                <td><button onclick="myFunction()">Convert</button></td>
+            </tr>
+            <tr>
+                <td colspan="4" id="result"></td>
+            </tr>
+        <!-- </form> -->
+    </table>
+
+    <script>
+        function myFunction() {
+            let amount = Number(document.getElementById('amount').value);
+            let fromCurrency = document.getElementById('from-currency').value;
+            let toCurrency = document.getElementById('to-currency').value;
+            let result;
+
+            if (fromCurrency == 'VietNam' && toCurrency == 'USD') {
+                result = document.getElementById('result').innerHTML = 'Result: ' + amount * 0.000043 + ' USD';
+            } else if (fromCurrency == 'USD' && toCurrency == 'VietNam') {
+                result = document.getElementById('result').innerHTML = 'Result: ' + amount * 23190 + ' VND';
+            } else if (fromCurrency == 'VietNam') {
+                result = document.getElementById('result').innerHTML = 'Result: ' + amount + ' VND';
+            } else {
+                result = document.getElementById('result').innerHTML = 'Result: ' + amount + ' USD';
+            }
+        }
+    </script>
+</body>
+</html>
