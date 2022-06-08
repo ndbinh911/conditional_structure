@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Tính số ngày trong một tháng</title>
+</head>
+<body>
+    <h3>Số ngày trong một tháng</h3>
+    <input type="text" id="month">
+    <button id="count_day" onclick="myFunction()">Tinh số ngày</button>
+    <p id="result"></p>
+
+    <script>
+        function myFunction() {
+            let month = parseFloat(document.getElementById('month').value);
+            let countDay = document.getElementById('count_day');
+            let result = document.getElementById('result').innerHTML;
+
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    result = document.getElementById('result').innerHTML = '31 ngày';
+                    break;
+                
+                case 2:
+                    result = document.getElementById('result').innerHTML = '29 ngày';
+                    break;
+
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    result = document.getElementById('result').innerHTML = '30 ngày';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
