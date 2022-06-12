@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[*Bài tập] Ứng dụng máy tính bỏ túi</title>
+    <style>
+        table {
+            border: 5px solid black;
+        }
+        table, th, td {
+            margin: auto;
+            width: 300px;
+            height: 70px;
+            text-align: center;
+            /* border: 1px solid; */
+        }
+        td {
+            color: #000cff;
+        }
+        #td1 {
+            border: 2px solid #d1d1d1;
+            text-align: right;
+            width: 250px;
+            height: 156px;
+        }
+        button {
+            font-weight: 600;
+            color: #000cff;
+            background-color: #fff;
+            border: 2px solid #d1d1d1;
+            width: 40px;
+            height: 40px;   
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="td1" colspan="4">
+                <div id="calculator">
+                    <div id="number_1">
+                        <p id="number_1_value"></p>
+                    </div>
+                    <div id="calculus">
+                        <p id="calculus_p"></p>
+                    </div>
+                    <div id="number_2">
+                        <p id="number_2_value"></p>
+                    </div>
+                    <div id="print_result">
+                        <p id="print_value"></p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><button class="number" id="1" onclick="insertValue(1)">1</button></td>
+            <td><button class="number" id="2" onclick="insertValue(2)">2</button></td>
+            <td><button class="number" id="3" onclick="insertValue(3)">3</button></td>
+            <td><button class="system" id="+" onclick="calculus('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button class="number" id="4" onclick="insertValue(4)">4</button></td>
+            <td><button class="number" id="5" onclick="insertValue(5)">5</button></td>
+            <td><button class="number" id="6" onclick="insertValue(6)">6</button></td>
+            <td><button class="system" id="-" onclick="calculus('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="number" id="7" onclick="insertValue(7)">7</button></td>
+            <td><button class="number" id="8" onclick="insertValue(8)">8</button></td>
+            <td><button class="number" id="9" onclick="insertValue(9)">9</button></td>
+            <td><button class="system" id="x" onclick="calculus('x')">x</button></td>
+        </tr>
+        <tr>
+            <td><button class="delete" id="delete_all" onclick="delete_all()">C</button></td>
+            <td><button class="number" id="0" onclick="insertValue(0)">0</button></td>
+            <td><button class="system" id="=" onclick="calculus('=')">=</button></td>
+            <td><button class="system" id="/" onclick="calculus('/')">/</button></td>
+        </tr>
+    </table>
+
+    <script>
+        let p1 = document.getElementById('number_1_value');
+        let p2 = document.getElementById('number_2_value');
+        let p3 = document.getElementById('calculus_p');
+        let p4 = document.getElementById('print_value');
+
+        function insertValue(number) {
+            let number1 = p1.innerHTML;
+            let calcu = p3.innerHTML;
+            if (!number1) {
+                p1.innerHTML += number;
+            } else if (!calcu) {
+                p1.innerHTML += number;
+            } else {
+                p2.innerHTML += number;
+            }
+        }
+
+        function calculus(value) {
+            if (value != '=') {
+                p3.innerHTML = value;
+                let print_value = p4.innerHTML;
+                p4.innerHTML = '';
+                if (print_value) {
+                    p1.innerHTML = print_value;
+                    p2.innerHTML = '';
+                }
+            } else {
+                let number1 = p1.innerHTML;
+                let number2 = p2.innerHTML;
+                let calcu = p3.innerHTML;
+                let result;
+
+                if  (calcu && number1 && number2) {
+                    switch (calcu) {
+                        case '+':
+                            result = number1 + number2;
+                            break;
+                        case '-':
+                            result = number1 - number2;
+                            break;
+                        case 'x':
+                            result = number1 * number2;
+                            break;
+                        case '/':
+                            result = number1 / number2;
+                            break;
+                    }
+                }
+                p4.innerHTML = result;
+            }
+        }
+
+        function delete_all() {
+            p1.innerHTML = '';
+            p2.innerHTML = '';
+            p3.innerHTML = '';
+            p4.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
